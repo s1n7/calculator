@@ -28,7 +28,34 @@ body {
 }
 
 .clear, .delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: grey;
     height: 60%;
     width: 50%;
+}
+
+.numbersOperations {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    height: 40%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 25%;
+}
+
+.numOp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    width: 12%;
+    background-color: grey;
 }
