@@ -1,0 +1,10 @@
+variable operand a
+variable operand b 
+variable operator o
+
+if button == number
+    a = a + button value //concatenate button value to a
+    display a
+
+if button == operator 
+    
