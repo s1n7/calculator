@@ -17,9 +17,8 @@ function divide(a, b) {
 }
 
 
-
 //operator function 
-function operate(operator, a, b) {
+function operate(a, operator, b) {
     if (operator === "+") {
         return add(a, b);
     } else if (operator === "-") {
@@ -33,4 +32,19 @@ function operate(operator, a, b) {
     }
 }
 
-console.log(operate('/', 5, 6));
+
+let displayValue = ""; //current display value
+
+//select html elements
+const buttons = document.querySelectorAll('button');
+const display = document.querySelector('.display');
+const numbers = document.querySelectorAll('.number');
+
+//event listener
+buttons.forEach(button => { button.addEventListener('click', function(e) {
+    if(e.target.id == '0' || e.target.id == '1' || e.target.id == '2' || e.target.id == '3' || e.target.id == '4'
+    || e.target.id == '5' || e.target.id == '6' || e.target.id == '7' || e.target.id == '8' || e.target.id == '9'){
+        displayValue = displayValue.concat(e.target.id);
+        display.textContent = displayValue;
+    }
+}) });
