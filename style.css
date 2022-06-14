@@ -16,7 +16,7 @@ body {
 .display {
     margin: 20px 20px 0 20px;
     background-color: grey;
-    height: 25%;
+    height: 20%;
 }
 
 .clearButtons {
@@ -24,7 +24,7 @@ body {
     justify-content: space-between;
     gap: 10px;
     margin: 20px 20px 0 20px;
-    height: 18%;
+    height: 10%;
 }
 
 .clear, .delete {
@@ -32,7 +32,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: grey;
-    height: 60%;
+    height: 100%;
     width: 50%;
 }
 
@@ -41,7 +41,7 @@ body {
     flex-direction: column;
     justify-content: center;
     margin: 20px;
-    height: 40%;
+    height: 70%;
 }
 
 .row {
@@ -49,6 +49,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     height: 25%;
+    gap: 10px;
 }
 
 .numOp {
@@ -56,6 +57,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 70%;
-    width: 12%;
+    width: 25%;
     background-color: grey;
 }
