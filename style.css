@@ -37,7 +37,7 @@ button {
     height: 10%;
 }
 
-.clear, .delete {
+#clear, #delete {
     display: flex;
     justify-content: center;
     align-items: center;
