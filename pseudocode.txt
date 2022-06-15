@@ -2,9 +2,13 @@ variable operand a
 variable operand b 
 variable operator o
 
-if button == number
+addEventListener to button (click, operate(e))
+
+if e == number
     a = a + button value //concatenate button value to a
     display a
 
 if button == operator 
-    
+    o = button 
+
+

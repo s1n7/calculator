@@ -34,11 +34,13 @@ function operate(a, operator, b) {
 
 
 let displayValue = ""; //current display value
+let operatorValue = "";
+let operandA = "";
+let operandB = "";
 
 //select html elements
 const buttons = document.querySelectorAll('button');
 const display = document.querySelector('.display');
-const numbers = document.querySelectorAll('.number');
 
 //event listener
 buttons.forEach(button => { button.addEventListener('click', function(e) {
@@ -47,4 +49,18 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
         displayValue = displayValue.concat(e.target.id);
         display.textContent = displayValue;
     }
+
+    if(e.target.id == '+' || e.target.id == '-' || e.target.id == '*' || e.target.id == '/'){
+        operatorValue = e.target.id;
+        operandA = displayValue;
+        displayValue = "";
+        display.textContent = "";
+    }
+
+    if(e.target.id == '=') {
+        operandB = displayValue;
+        const result = operate(Number(operandA), operatorValue, Number(operandB));
+        display.textContent = result;
+    }
+
 }) });
