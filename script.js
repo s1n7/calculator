@@ -59,7 +59,10 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
 
     if(e.target.id == '=') {
         operandB = displayValue;
-        const result = operate(Number(operandA), operatorValue, Number(operandB));
+        let result = operate(Number(operandA), operatorValue, Number(operandB));
+        if(result % 1 !== 0) {
+            result = +(Math.round(result + "e+8")  + "e-8");
+        }
         display.textContent = result;
         displayValue = result;
     }
