@@ -37,6 +37,7 @@ let displayValue = ""; //current display value
 let operatorValue = "";
 let operandA = "";
 let operandB = "";
+let result;
 
 //select html elements
 const buttons = document.querySelectorAll('button');
@@ -55,11 +56,12 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
         operandA = displayValue;
         displayValue = "";
         display.textContent = "";
+        result = undefined; //this way the delete button resets the display to 0
     }
 
     if(e.target.id == '=') {
         operandB = displayValue;
-        let result = operate(Number(operandA), operatorValue, Number(operandB));
+        result = operate(Number(operandA), operatorValue, Number(operandB));
         if(result % 1 !== 0) {
             result = +(Math.round(result + "e+8")  + "e-8");
         }
@@ -67,4 +69,28 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
         displayValue = result;
     }
 
+    if(e.target.id == 'delete') {
+        if (!result) {
+            displayValue = String(displayValue);
+            displayValue = displayValue.slice(0, -1);
+            display.textContent = displayValue;
+        } else {
+            reset();
+        }
+    }
+
+    if(e.target.id == 'clear'){
+        reset();
+    }
+
 }) });
+
+
+function reset() {
+    display.textContent = "0";
+    displayValue = ""; 
+    operatorValue = "";
+    operandA = "";
+    operandB = "";
+    result = undefined;
+}
