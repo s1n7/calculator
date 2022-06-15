@@ -61,6 +61,7 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
         operandB = displayValue;
         const result = operate(Number(operandA), operatorValue, Number(operandB));
         display.textContent = result;
+        displayValue = result;
     }
 
 }) });
