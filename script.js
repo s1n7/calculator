@@ -52,11 +52,22 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
     }
 
     if(e.target.id == '+' || e.target.id == '-' || e.target.id == '*' || e.target.id == '/'){
-        operatorValue = e.target.id;
-        operandA = displayValue;
-        displayValue = "";
-        display.textContent = "";
-        result = undefined; //this way the delete button resets the display to 0
+        if(operandA){   //operate current operation first before doing the next one
+            operandB = displayValue;
+            result = operate(Number(operandA), operatorValue, Number(operandB));
+            if(result % 1 !== 0) {
+                result = +(Math.round(result + "e+8")  + "e-8");
+            }
+            display.textContent = result;
+            operandA = result;  //operandA for the next operation
+            displayValue = "";  //clear displayValue
+            operatorValue = e.target.id;    //set selected operator for next operation
+        } else {
+            operatorValue = e.target.id;
+            operandA = displayValue;
+            displayValue = "";
+            result = undefined; //this way the delete button resets the display to 0
+        }
     }
 
     if(e.target.id == '=') {
@@ -65,8 +76,9 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
         if(result % 1 !== 0) {
             result = +(Math.round(result + "e+8")  + "e-8");
         }
-        display.textContent = result;
-        displayValue = result;
+        display.textContent = result;   
+        operandA = result;
+        displayValue = "";
     }
 
     if(e.target.id == 'delete') {
@@ -87,7 +99,7 @@ buttons.forEach(button => { button.addEventListener('click', function(e) {
 
 
 function reset() {
-    display.textContent = "0";
+    display.textContent = "";
     displayValue = ""; 
     operatorValue = "";
     operandA = "";
